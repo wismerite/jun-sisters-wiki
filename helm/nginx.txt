@@ -1,0 +1,13 @@
+https://github.com/digitalocean/Kubernetes-Starter-Kit-Developers/blob/main/03-setup-ingress-controller/nginx.md
+
+```
+helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
+helm repo update ingress-nginx
+helm search repo ingress-nginx
+helm install ingress-nginx ingress-nginx/ingress-nginx --version "4.0.13" \
+  --namespace ingress-nginx \
+  --create-namespace \
+  -f "nginx-values-v4.0.13.yaml"
+```
+
+

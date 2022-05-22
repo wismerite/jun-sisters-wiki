@@ -1,0 +1,22 @@
+# replicaCount is number of jswiki pods we want
+replicacount: 1
+postgresql:
+  # postgresql.postgresqlHost is private connection string to db cluster
+  postgresqlHost: private-jun-sisters-wiki-db-do-user-2781265-0.b.db.ondigitalocean.com
+  # postgresql.postgresqlDatabase db for jswiki app
+  postgresqlDatabase: jun-sisters-wiki-jswiki
+  # postgresql.postgresqlUser db user for jswiki app
+  postgresqlUser: jswiki
+  # postgresql.existingSecret gives helm a path to a kube secret
+  existingSecret: postgres-pw
+  # postgresql.enabled controls whether a local pgsql is used
+  enabled: false
+ingress:
+  # ingress.enabled use an ingress controller
+  enabled: true
+  # ingress.hosts ties domain to path in ingress controller maybe
+  hosts: 
+    - host: "wiki.jun-sisters.gay"
+      paths: 
+        - path: "/"
+          pathType: "Prefix"

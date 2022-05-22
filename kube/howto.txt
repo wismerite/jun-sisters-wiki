@@ -1,0 +1,5 @@
+# put the db password in the referenced file and run this command
+# DO NOT COMMIT PW TO GITHUB
+# the db is private, but still.
+# should only be touching this for initial deployments and cred rotations
+kubectl apply -f ./pg_secrets.yaml

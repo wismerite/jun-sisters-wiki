@@ -1,0 +1,5 @@
+helm repo add requarks https://charts.js.wiki
+helm install jswiki  \
+  --namespace jswiki \
+  -f jswiki.dev.yaml \
+  requarks/wiki
