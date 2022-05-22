@@ -2,13 +2,17 @@
 replicacount: 1
 postgresql:
   # postgresql.postgresqlHost is private connection string to db cluster
-  postgresqlHost: private-jun-sisters-wiki-db-do-user-2781265-0.b.db.ondigitalocean.com
+  postgresqlHost: "private-jun-sisters-wiki-db-do-user-2781265-0.b.db.ondigitalocean.com"
+  # postgressql.postgresqlPort port for db cluster
+  postgresqlPort: 25060
   # postgresql.postgresqlDatabase db for jswiki app
-  postgresqlDatabase: jun-sisters-wiki-jswiki
+  postgresqlDatabase: "jun-sisters-wiki-jswiki"
   # postgresql.postgresqlUser db user for jswiki app
-  postgresqlUser: jswiki
+  postgresqlUser: "jswiki"
+  # ssl is required by DO db cluster who set that up :weary:
+  postgresql.ssl: true
   # postgresql.existingSecret gives helm a path to a kube secret
-  existingSecret: postgres-pw
+  existingSecret: "postgres-pw"
   # postgresql.enabled controls whether a local pgsql is used
   enabled: false
 ingress:
