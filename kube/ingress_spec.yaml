@@ -2,17 +2,16 @@ apiVersion: networking.k8s.io/v1
 kind: Ingress
 metadata:
   name: ingress-jswiki
-  namespace: jswiki
 spec:
+  ingressClassName: nginx
   rules:
     - host: wiki.jun-sisters.gay
       http:
         paths:
-          - path: /
-            pathType: Prefix
-            backend:
+          - backend:
               service:
                 name: jswiki
                 port:
                   number: 80
-  ingressClassName: nginx
+            path: /
+            pathType: Prefix

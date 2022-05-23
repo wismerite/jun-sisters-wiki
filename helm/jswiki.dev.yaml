@@ -10,17 +10,28 @@ postgresql:
   # postgresql.postgresqlUser db user for jswiki app
   postgresqlUser: "jswiki"
   # ssl is required by DO db cluster who set that up :weary:
-  postgresql.ssl: true
+  ssl: true
+  # DO's ca cert for db connects
+  ca: "MIIEQTCCAqmgAwIBAgIUEuqSGj+c2klFHik0gHv3VOlEajAwDQYJKoZIhvcNAQEMBQAwOjE4MDYGA1UEAwwvZDg0OTUzOWEtYWRjNy00OTk0LWI5OTctM2Q3YjJkZDUwMDEyIFByb2plY3QgQ0EwHhcNMjIwNTAxMDExNTA0WhcNMzIwNDI4MDExNTA0WjA6MTgwNgYDVQQDDC9kODQ5NTM5YS1hZGM3LTQ5OTQtYjk5Ny0zZDdiMmRkNTAwMTIgUHJvamVjdCBDQTCCAaIwDQYJKoZIhvcNAQEBBQADggGPADCCAYoCggGBAPbEGNrtZ9odjRwr2r/FO9v640/cNlGQ/8I3JiET67J1vEKRLEyYeoJ3ZPX9JkgHbYiDi81jSIemkLU7ggbj80jyvnucpE8Z/FrWw5Zu+Ju16YXz8VChKifx85EwwlYaIscbOdFF6HHd15FM3yD+Pnxv7um8jikGyNMpHA83uv1plQVC/3qa45Xx+4twpmUyOG6jx5nv9MvjvHqPSimCBmsCHkWhKQKk6S0FaTfwx7u+Z9mgul8WMLGIiI0upteUihBSsIn1u8dv10JK5/s4kmap2HxHp/YqbwMeIN7lcdde7nzeF+AvSf+221QQtpsC/tBE2AfQVF49BiaVv0X+mT9LH0XwiEY4yFQ6/OUXM9eZyTEsQSutuyRiKzk9y2ey2fPSwb1tkIC+4FnGsW+ntzEKGja+h2joAUXtHYzmCIYgB7GNxoH0VMYWo8G5FjjopoIjtvC1eSHFoapjb68/acn7YP/sGGX0lPORUSfoRBgP3jjdfzeYSZpULuU5W+E/NQIDAQABoz8wPTAdBgNVHQ4EFgQUJb3NVSUF0pP6vh39nmrAzSo+NSwwDwYDVR0TBAgwBgEB/wIBADALBgNVHQ8EBAMCAQYwDQYJKoZIhvcNAQEMBQADggGBAKGffOxo2z069+CQWl8aw/+saiv4Brc0eOYWxY3zlfnRj2SwfB5SvaJy8LHI3E2vXX+2npucwk5La9N6Dgp4aMHJLDrxSkA8bB6tCPYKvQAkJHy36vE8CuuIgx0rDo/5cIaNmuo7xKriVuPNsN9ZG3WEcZNGa2YPEpRw+1+0dwNbkSsnfK68YfrSWefjQMfb1cQRZCfOq/fbyKlDtuXgHhBaYd+i0NTumnyjBqG441lIv0pjoXxk7TAh0/XNSdRUr/Zmxb4UTUQtjBU8Qwf9KOs5X3qCUAFKrLwED8aSI0mOuchcqXgAUMBsCY2Soz+kvLBrnRc5KQlo7H4xhSh4sQplbFDw0KiZI8gQk4PvayjAIxMbJRCNVz/Zf674O2etYwCGmhDu7S4GDxy19OXhTPFQcr4YBNKzuqCt1vxYbA/MLINOHE8nfneq399g6wB3kEwY83AeVIvMiOHj7CMW+p6nbZAjzL1K9I07+53OldbEsaKGgZ9PsuIDFVYZz7a4sQ=="
   # postgresql.existingSecret gives helm a path to a kube secret
   existingSecret: "postgres-pw"
   # postgresql.enabled controls whether a local pgsql is used
   enabled: false
-ingress:
+# ingress:
   # ingress.enabled use an ingress controller
-  enabled: true
+  # enabled: true
   # ingress.hosts ties domain to path in ingress controller maybe
-  hosts: 
-    - host: "wiki.jun-sisters.gay"
-      paths: 
-        - path: "/"
-          pathType: "Prefix"
+  # hosts: 
+  #   - host: "wiki.jun-sisters.gay"
+  #     paths: 
+  #       - path: "/"
+  #         pathType: "Prefix"
+# volumeMounts:
+#   - name: config
+#     mountPath: "/config/ca-certificate.crt"
+#     readOnly: true
+# volumes:
+#   - name: config
+#     configMap:
+#       # Provide the name of the ConfigMap you want to mount.
+#       name: ca-cert
